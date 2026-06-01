@@ -1,0 +1,322 @@
+/* --- Réinitialisation et Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-gray: #CCCCCC;
+    --bg-white: #FFFFFF;
+    --primary-cyan: #00BFA5;
+    --dark-cyan: #00A892;
+    --text-dark: #000000;
+    --text-white: #FFFFFF;
+    --btn-gray: #7F8C8D;
+    --red-alert: #D32F2F;
+    --font-main: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* --- SECTION HERO --- */
+.hero-section {
+    background-color: var(--bg-gray);
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.hero-container {
+    position: relative;
+    padding: 20px 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Angles noirs de décoration autour du texte du Hero */
+.hero-frame-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 40px;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
+}
+
+.hero-frame-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 3px;
+    background: #000;
+}
+.hero-frame-bottom::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    width: 5px;
+    height: 5px;
+    background: #000;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.red-dot {
+    width: 14px;
+    height: 14px;
+    background-color: var(--red-alert);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.hero-content h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-date {
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding-left: 25px;
+    text-align: left;
+}
+
+/* Bouton S'inscrire */
+.btn-register {
+    background-color: var(--btn-gray);
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 2px solid var(--primary-cyan);
+    transition: background 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: #6C7A7B;
+}
+
+/* --- SECTION PRÉSENTATION --- */
+.presentation-section {
+    background-color: var(--bg-white);
+    padding: 60px 10%;
+}
+
+.presentation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.presentation-text {
+    flex: 1;
+}
+
+.presentation-text h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: none;
+    line-height: 1.3;
+}
+
+.presentation-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Image et ses bordures graphiques stylisées */
+.presentation-image-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.presentation-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.img-frame-top {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 60px;
+    height: 40px;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
+}
+.img-frame-top::after {
+    content: '...';
+    position: absolute;
+    bottom: -40px;
+    left: -5px;
+    transform: rotate(90deg);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.img-frame-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    width: 40px;
+    height: 50px;
+    border-bottom: 3px solid #000;
+    border-right: 3px solid #000;
+}
+.img-frame-bottom::before {
+    content: '...';
+    position: absolute;
+    left: -25px;
+    bottom: -5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* --- FOOTER --- */
+.footer-section {
+    background-color: var(--primary-cyan);
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-main {
+    padding: 40px 5% 20px 5%;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-brand-left, .footer-brand-right {
+    flex: 1;
+    display: flex;
+}
+
+.footer-brand-left { justify-content: flex-start; }
+.footer-brand-right { justify-content: flex-end; }
+
+.partner-logo {
+    max-height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-center {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-mail {
+    font-size: 1.1rem;
+}
+
+.contact-mail a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.instagram-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-white);
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.insta-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Rend l'icône noire en blanc si nécessaire */
+}
+
+/* Sous-footer (bande cyan clair pour l'URL) */
+.footer-sub {
+    background-color: var(--dark-cyan);
+    text-align: center;
+    padding: 12px 20px;
+}
+
+.footer-sub a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .presentation-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .presentation-text p {
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-brand-left, .footer-brand-right {
+        justify-content: center;
+    }
+}
