@@ -68,11 +68,16 @@ body {
     z-index: 1;
 }
 
+.hero-center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .hero-container {
     position: relative;
     padding: 20px 40px;
     text-align: center;
-    margin-bottom: 30px;
 }
 
 /* Angles noirs de décoration autour du texte du Hero */
@@ -135,9 +140,13 @@ body {
 
 /* Bouton S'inscrire */
 .btn-register {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--btn-gray);
     color: var(--text-white);
     text-decoration: none;
+    margin-top: 70px;
     padding: 12px 35px;
     border-radius: 25px;
     font-weight: 700;
@@ -246,6 +255,10 @@ body {
     .hero-section {
         min-height: 58vh;
         padding: 150px 20px 45px;
+    }
+
+    .btn-register {
+        margin-top: 45px;
     }
 
     .presentation-container {
