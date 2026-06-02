@@ -22,7 +22,7 @@
                     <span class="red-dot"></span>
                     <h1>EXPOSITION INTERACTIVE</h1>
                 </div>
-                <p class="hero-date">DU 18 JUIN 2026</p>
+                <p class="hero-date">DU 18 AU 19 JUIN 2026</p>
                 <div class="hero-frame-bottom"></div>
             </div>
 
