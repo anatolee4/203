@@ -24,8 +24,8 @@ body {
 }
 
 .header-container-absolute {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 16px;
     left: 0;
     z-index: 10;
     width: 100%;
