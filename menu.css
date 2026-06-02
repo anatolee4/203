@@ -1,4 +1,3 @@
-/* --- Réinitialisation et Variables --- */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +11,7 @@
     --dark-cyan: #00A892;
     --text-dark: #000000;
     --text-white: #FFFFFF;
-    --btn-gray: #7F8C8D;
+    --btn-gray: #00000057;
     --red-alert: #D32F2F;
     --font-main: 'Montserrat', sans-serif;
 }
@@ -24,16 +23,32 @@ body {
     overflow-x: hidden;
 }
 
+.header-container-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    pointer-events: none;
+}
+
+.header-container-absolute .site-header {
+    pointer-events: auto;
+}
+
 /* --- SECTION HERO --- */
 .hero-section {
-    background-color: var(--bg-gray);
-    min-height: 45vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;    
     align-items: center;
-    padding: 200px 20px;
+    padding: 140px 20px 80px;
     position: relative;
+    background-image: url("img/hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-container {

@@ -9,12 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div header>
     <header class="header-container-absolute">
-            <?php include 'header.php'; ?>
-        </header>
-
-    </div>
+        <?php include 'header.php'; ?>
+    </header>
     
     <section class="hero-section">
         <div class="hero-center-content">
