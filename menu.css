@@ -38,12 +38,12 @@ body {
 
 /* --- SECTION HERO --- */
 .hero-section {
-    min-height: 100vh;
+    min-height: 68vh;
     display: flex;
     flex-direction: column;
     justify-content: center;    
     align-items: center;
-    padding: 140px 20px 80px;
+    padding: 115px 20px 55px;
     position: relative;
     overflow: hidden;
     z-index: 0;
@@ -55,7 +55,7 @@ body {
     inset: -20px;
     background-image: url("img/hero.png");
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
     filter: blur(12px);
     transform: scale(1.04);
@@ -332,6 +332,11 @@ body {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
+    .hero-section {
+        min-height: 58vh;
+        padding: 150px 20px 45px;
+    }
+
     .presentation-container {
         flex-direction: column;
         text-align: center;
