@@ -45,10 +45,26 @@ body {
     align-items: center;
     padding: 140px 20px 80px;
     position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
     background-image: url("img/hero.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: blur(12px);
+    transform: scale(1.04);
+    z-index: -1;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-container {
