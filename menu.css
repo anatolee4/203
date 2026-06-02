@@ -286,7 +286,6 @@ body {
     filter: invert(1); /* Rend l'icône noire en blanc si nécessaire */
 }
 
-/* Sous-footer (bande cyan clair pour l'URL) */
 .footer-sub {
     background-color: var(--dark-cyan);
     text-align: center;
