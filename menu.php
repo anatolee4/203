@@ -6,6 +6,7 @@
     <title>E-llusion - Exposition Interactive</title>
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>

@@ -1,4 +1,5 @@
 <footer class="footer-section">
+        
         <div class="footer-main">
             <h2 class="footer-logo">E-llusion</h2>
             
