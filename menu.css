@@ -47,6 +47,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 0;
+    isolation: isolate;
 }
 
 .hero-section::before {
@@ -59,7 +60,7 @@ body {
     background-repeat: no-repeat;
     filter: blur(12px);
     transform: scale(1.04);
-    z-index: -1;
+    z-index: 0;
 }
 
 .hero-section > * {
