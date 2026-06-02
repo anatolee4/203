@@ -7,3 +7,5 @@
 
     <a href="menu.php" class="site-header__logo" aria-label="Accueil E-llusion">
         <span class="site-header__logo-e">E</span>-llusion
+    </a>
+</nav>
