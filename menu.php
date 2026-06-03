@@ -26,7 +26,7 @@
                 <div class="hero-frame-bottom"></div>
             </div>
 
-            <a href="#" class="btn-register">S'inscrire</a>
+            <a href="inscription1.php" class="btn-register">S'inscrire</a>
         </div>
     </section>
 
