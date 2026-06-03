@@ -1,13 +1,9 @@
 <?php
-$host = '192.168.135.113';
-$dbname = 'palisslu';
-$user = 'palisslu';
-$password = 'Petit-lulu.091';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
-    echo "✅ Connexion réussie !";
-} catch (PDOException $e) {
-    echo "❌ Erreur : " . $e->getMessage();
+require_once __DIR__ . '/commun/database.php';
+$pdo = db_connexion();
+if ($pdo) {
+    echo "✅ db_connexion() fonctionne";
+} else {
+    echo "❌ db_connexion() retourne null";
 }
 ?>
