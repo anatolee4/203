@@ -24,7 +24,7 @@
 
                 <form class="inscription-form" action="inscription4.php" method="get">
                     <fieldset class="form-fieldset slot-panel">
-                        <legend class="slot-day">Jeudi 18</legend>
+                        <p class="slot-day">Jeudi 18</p>
 
                         <div class="slot-grid">
                             <label class="slot-option"><input type="radio" name="creneau" value="jeudi-15h"><span class="slot-card">15h</span></label>
