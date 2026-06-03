@@ -151,20 +151,27 @@ body {
 .btn-next,
 .btn-secondary {
     display: inline-flex;
-    min-height: 60px;
-    min-width: 190px;
     align-items: center;
     justify-content: center;
-    border: 3px solid #3ce8d7;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.55);
+    min-width: 190px;
+    padding: 12px 35px;
+    border: 2px solid #00BFA5;
+    border-radius: 25px;
+    background-color: #00000057;
     color: #ffffff;
     text-decoration: none;
-    font-weight: 800;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background 0.3s ease;
 }
 
 .btn-next {
     min-width: 210px;
+}
+
+.btn-next:hover,
+.btn-secondary:hover {
+    background-color: #6C7A7B;
 }
 
 .counter-control {
