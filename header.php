@@ -1,4 +1,5 @@
 <nav class="site-header" aria-label="Navigation principale">
+    <link rel="stylesheet" href="header.css">
     <ul class="site-header__nav">
         <li><a href="/SAE%20203/203/inscription1.php" class="site-header__link">Inscription</a></li>
         <li><a href="/SAE%20203/203/salles.php" class="site-header__link">Les salles</a></li>
