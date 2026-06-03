@@ -1,3 +1,10 @@
+<?php
+$currentDirectory = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+$currentFolder = basename($currentDirectory);
+$sectionFolders = ['accueil', 'inscription', 'salles', 'oeuvres'];
+$siteRoot = in_array($currentFolder, $sectionFolders, true) ? dirname($currentDirectory) : $currentDirectory;
+$siteRoot = rtrim($siteRoot, '/');
+?>
 <footer class="footer-section">
         
         <div class="footer-main">
@@ -6,18 +13,18 @@
             
             <div class="footer-content">
                 <div class="footer-brand-left">
-                    <img src="chemin_vers_mmi_logo.png" alt="MMI Chambéry" class="partner-logo">
+                    <img src="<?= htmlspecialchars($siteRoot . '/img/logo_MMI.png', ENT_QUOTES, 'UTF-8') ?>" alt="MMI Chambéry" class="partner-logo">
                 </div>
 
                 <div class="footer-center">
                     <p class="contact-mail">nous contacter : <a href="mailto:aaaa@univ-smb.fr">aaaa@univ-smb.fr</a></p>
                     <a href="https://instagram.com" target="_blank" class="instagram-link">
-                        <img src="chemin_vers_insta_icon.png" alt="" class="insta-icon"> Instagram
+                        <img src="<?= htmlspecialchars($siteRoot . '/img/logo_insta.png', ENT_QUOTES, 'UTF-8') ?>" alt="" class="insta-icon"> Instagram
                     </a>
                 </div>
 
                 <div class="footer-brand-right">
-                    <img src="chemin_vers_iut_logo.png" alt="IUT Chambéry" class="partner-logo">
+                    <img src="<?= htmlspecialchars($siteRoot . '/img/logo_IUT.png', ENT_QUOTES, 'UTF-8') ?>" alt="IUT Chambéry" class="partner-logo">
                 </div>
             </div>
         </div>
