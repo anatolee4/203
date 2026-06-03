@@ -10,7 +10,8 @@
     background: #42d8cf;
     border: 3px solid #0000004e;
     border-radius: 999px;
-    
+    font-family: var(--font-main, "Montserrat", Arial, sans-serif);
+    font-weight: 900;
 }
 
 .site-header__nav {
@@ -24,6 +25,7 @@
 
 .site-header__link,
 .site-header__logo {
+    font-family: var(--font-main, "Montserrat", Arial, sans-serif);
     color: #020202;
     text-decoration: none;
     font-weight: 900;
@@ -43,6 +45,7 @@
 }
 
 .site-header__logo-e {
+    font-weight: 900;
     color: #ffffff;
     margin-right: 4px;
 }

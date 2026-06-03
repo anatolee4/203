@@ -53,6 +53,14 @@ table {
     border-spacing: 0;
 }
 
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
