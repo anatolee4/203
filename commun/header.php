@@ -15,4 +15,6 @@ $siteRoot = rtrim($siteRoot, '/');
     <a href="<?= htmlspecialchars($siteRoot . '/accueil/menu.php', ENT_QUOTES, 'UTF-8') ?>" class="site-header__logo" aria-label="Accueil E-llusion">
         <span class="site-header__logo-e">E</span>-llusion
     </a>
+
+    <a href="<?= htmlspecialchars($siteRoot . '/connexion_admin.php', ENT_QUOTES, 'UTF-8') ?>" class="site-header__admin">Admin</a>
 </nav>

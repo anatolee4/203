@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (empty($_SESSION['admin_connecte'])) {
+    header('Location: ../connexion_admin.php');
+    exit;
+}
+
 $salles = ['001' => 'Salle 001', '002' => 'Salle 002', '005' => 'Salle 005', '021' => 'Salle 021'];
 $capaciteMax = 12;
 
@@ -155,6 +162,7 @@ foreach ($inscriptions as $inscription) {
             <p class="admin-eyebrow">Administration</p>
             <h1>Tableau de bord des salles</h1>
             <p class="admin-intro">Suivi des inscriptions par salle et par créneau.</p>
+            <a class="admin-logout" href="../connexion_admin.php?deconnexion=1">Se déconnecter</a>
         </section>
 
         <section class="schedule-section" aria-label="Planning des salles">
