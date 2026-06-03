@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../commun/inscriptions_repository.php';
+
 $capaciteMax = 12;
 $salleChoisie = preg_match('/(001|002|005|021)/', (string) ($_GET['salle'] ?? ''), $matches) ? $matches[1] : '';
 $personnesDemandees = max(1, min($capaciteMax, (int) ($_GET['personnes'] ?? 1)));
@@ -36,10 +38,7 @@ $creneaux = [
     ],
 ];
 
-$inscriptions = json_decode($_COOKIE['inscriptions'] ?? '[]', true);
-if (!is_array($inscriptions)) {
-    $inscriptions = [];
-}
+$inscriptions = inscriptions_lire_toutes();
 
 function code_salle_inscription(?string $salle): string
 {

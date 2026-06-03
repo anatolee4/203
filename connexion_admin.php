@@ -1,10 +1,7 @@
 <?php
 session_start();
+require_once __DIR__ . '/commun/database.php';
 
-const ADMIN_DB_HOST = 'localhost';
-const ADMIN_DB_NAME = 'sae203';
-const ADMIN_DB_USER = 'root';
-const ADMIN_DB_PASSWORD = '';
 const ADMIN_DB_TABLE = 'administrateurs';
 const ADMIN_DB_PASSWORD_COLUMN = 'mot_de_passe';
 
@@ -13,30 +10,16 @@ function admin_login_champ(string $nom): string
     return trim((string) ($_POST[$nom] ?? ''));
 }
 
-function admin_login_identifier(string $identifier): string
-{
-    if (!preg_match('/^[a-zA-Z0-9_]+$/', $identifier)) {
-        throw new RuntimeException('Configuration SQL invalide.');
-    }
-
-    return '`' . $identifier . '`';
-}
-
-function admin_login_pdo(): PDO
-{
-    $dsn = 'mysql:host=' . ADMIN_DB_HOST . ';dbname=' . ADMIN_DB_NAME . ';charset=utf8mb4';
-
-    return new PDO($dsn, ADMIN_DB_USER, ADMIN_DB_PASSWORD, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
-}
-
 function admin_login_password_ok(string $motDePasse): bool
 {
-    $pdo = admin_login_pdo();
-    $table = admin_login_identifier(ADMIN_DB_TABLE);
-    $colonneMotDePasse = admin_login_identifier(ADMIN_DB_PASSWORD_COLUMN);
+    $pdo = db_connexion();
+
+    if (!$pdo) {
+        throw new RuntimeException('Base de données non configurée.');
+    }
+
+    $table = db_identifiant(ADMIN_DB_TABLE);
+    $colonneMotDePasse = db_identifiant(ADMIN_DB_PASSWORD_COLUMN);
     $requete = $pdo->query("SELECT $colonneMotDePasse AS mot_de_passe FROM $table");
 
     foreach ($requete as $ligne) {

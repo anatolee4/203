@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../commun/inscriptions_repository.php';
+
 $capaciteMax = 12;
 $personnesInitiales = max(1, min($capaciteMax, (int) ($_GET['personnes'] ?? 1)));
 $salleSelectionnee = code_salle_disponibilite($_GET['salle'] ?? '');
@@ -36,10 +38,7 @@ $creneaux = [
     'vendredi-11h',
 ];
 
-$inscriptions = json_decode($_COOKIE['inscriptions'] ?? '[]', true);
-if (!is_array($inscriptions)) {
-    $inscriptions = [];
-}
+$inscriptions = inscriptions_lire_toutes();
 
 function code_salle_disponibilite(?string $salle): string
 {

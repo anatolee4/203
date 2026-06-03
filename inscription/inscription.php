@@ -1,17 +1,10 @@
 <?php
-$inscriptions = json_decode($_COOKIE['inscriptions'] ?? '[]', true);
-if (!is_array($inscriptions)) {
-    $inscriptions = [];
-}
+require_once __DIR__ . '/../commun/inscriptions_repository.php';
+
+$inscriptions = inscriptions_lire_toutes();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_index'])) {
-    $index = (int) $_POST['supprimer_index'];
-
-    if (array_key_exists($index, $inscriptions)) {
-        unset($inscriptions[$index]);
-        $inscriptions = array_values($inscriptions);
-        setcookie('inscriptions', json_encode($inscriptions), time() + 60 * 60 * 24 * 30, '/');
-    }
+    inscriptions_supprimer((string) $_POST['supprimer_index']);
 
     header('Location: inscription.php?suppression=1');
     exit;
@@ -102,7 +95,7 @@ function libelle_creneau(?string $creneau): string
                                 </dl>
 
                                 <form class="delete-form" action="inscription.php" method="post">
-                                    <input type="hidden" name="supprimer_index" value="<?= (int) $index ?>">
+                                    <input type="hidden" name="supprimer_index" value="<?= htmlspecialchars(inscriptions_identifiant($inscription, (int) $index), ENT_QUOTES, 'UTF-8') ?>">
                                     <button class="btn-delete" type="submit">Supprimer</button>
                                 </form>
                             </article>

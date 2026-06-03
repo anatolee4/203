@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/../commun/inscriptions_repository.php';
 
 if (empty($_SESSION['admin_connecte'])) {
     header('Location: ../connexion_admin.php');
@@ -46,13 +47,14 @@ foreach ($creneaux as $jourData) {
 
 function admin_lire_inscriptions(): array
 {
-    $inscriptions = json_decode($_COOKIE['inscriptions'] ?? '[]', true);
-    return is_array($inscriptions) ? array_values($inscriptions) : [];
+    return inscriptions_lire_toutes();
 }
 
 function admin_sauver_inscriptions(array $inscriptions): void
 {
-    setcookie('inscriptions', json_encode(array_values($inscriptions)), time() + 60 * 60 * 24 * 30, '/');
+    foreach ($inscriptions as $index => $inscription) {
+        inscriptions_modifier(inscriptions_identifiant($inscription, (int) $index), $inscription);
+    }
 }
 
 function admin_champ(string $nom, string $defaut = ''): string
@@ -85,18 +87,18 @@ $inscriptions = admin_lire_inscriptions();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = admin_champ('action');
-    $index = (int) admin_champ('index', '-1');
+    $identifiant = admin_champ('index', '-1');
+    $index = inscriptions_index_par_identifiant($inscriptions, $identifiant);
 
-    if (array_key_exists($index, $inscriptions)) {
+    if ($index !== null && array_key_exists($index, $inscriptions)) {
         if ($action === 'delete') {
-            unset($inscriptions[$index]);
-            admin_sauver_inscriptions($inscriptions);
+            inscriptions_supprimer($identifiant);
             header('Location: admin.php?suppression=1');
             exit;
         }
 
         if ($action === 'update') {
-            $inscriptions[$index] = [
+            $inscriptionModifiee = [
                 'nom' => admin_champ('nom'),
                 'prenom' => admin_champ('prenom'),
                 'email' => admin_champ('email'),
@@ -108,14 +110,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'date_creation' => $inscriptions[$index]['date_creation'] ?? date('Y-m-d H:i:s'),
             ];
 
-            admin_sauver_inscriptions($inscriptions);
+            inscriptions_modifier($identifiant, $inscriptionModifiee);
             header('Location: admin.php?modification=1');
             exit;
         }
     }
 }
 
-$editIndex = isset($_GET['edit']) ? (int) $_GET['edit'] : null;
+$editIdentifiant = isset($_GET['edit']) ? (string) $_GET['edit'] : null;
+$editIndex = $editIdentifiant !== null ? inscriptions_index_par_identifiant($inscriptions, $editIdentifiant) : null;
 if ($editIndex !== null && !array_key_exists($editIndex, $inscriptions)) {
     $editIndex = null;
 }
@@ -253,7 +256,8 @@ foreach ($inscriptions as $inscription) {
                 <ul class="inscriptions-list" id="inscriptions-list">
                     <?php foreach ($inscriptions as $i => $insc): ?>
                         <?php
-                            $id = 'insc-' . $i;
+                            $identifiant = inscriptions_identifiant($insc, (int) $i);
+                            $id = 'insc-' . preg_replace('/[^a-zA-Z0-9_-]/', '-', $identifiant);
                             $nomCompletTexte = trim(($insc['prenom'] ?? '') . ' ' . ($insc['nom'] ?? '')) ?: 'Visiteur';
                             $nomComplet = htmlspecialchars($nomCompletTexte, ENT_QUOTES, 'UTF-8');
                             $email      = htmlspecialchars($insc['email'] ?? '', ENT_QUOTES, 'UTF-8');
@@ -284,10 +288,10 @@ foreach ($inscriptions as $inscription) {
                                     <span class="insc-chevron" aria-hidden="true">&#8250;</span>
                                 </button>
                                 <span class="insc-actions">
-                                    <a class="insc-icon-edit" href="admin.php?edit=<?= (int) $i ?>#<?= $id ?>-detail" title="Modifier" aria-label="Modifier">&#9998;</a>
+                                    <a class="insc-icon-edit" href="admin.php?edit=<?= htmlspecialchars($identifiant, ENT_QUOTES, 'UTF-8') ?>#<?= $id ?>-detail" title="Modifier" aria-label="Modifier">&#9998;</a>
                                     <form class="insc-action-form" action="admin.php" method="post" onsubmit="return confirm('Supprimer cette inscription ?');">
                                         <input type="hidden" name="action" value="delete">
-                                        <input type="hidden" name="index" value="<?= (int) $i ?>">
+                                        <input type="hidden" name="index" value="<?= htmlspecialchars($identifiant, ENT_QUOTES, 'UTF-8') ?>">
                                         <button class="insc-icon-del" type="submit" title="Supprimer" aria-label="Supprimer">&#128465;</button>
                                     </form>
                                 </span>
@@ -298,7 +302,7 @@ foreach ($inscriptions as $inscription) {
                                     <?php if ($isEditing): ?>
                                         <form class="insc-edit-form" action="admin.php" method="post">
                                             <input type="hidden" name="action" value="update">
-                                            <input type="hidden" name="index" value="<?= (int) $i ?>">
+                                            <input type="hidden" name="index" value="<?= htmlspecialchars($identifiant, ENT_QUOTES, 'UTF-8') ?>">
 
                                             <div class="insc-edit-grid">
                                                 <label class="insc-edit-field">
