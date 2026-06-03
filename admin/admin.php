@@ -16,7 +16,7 @@ $capaciteMax = 12;
     <title>Admin - Tableau de bord</title>
     <link rel="stylesheet" href="../commun/reset.css">
     <link rel="stylesheet" href="../commun/header.css">
-    <link rel="stylesheet" href="../commun/footer.css">
+    <link rel="stylesheet" href="../commun/footer.css?v=2">
     <link rel="stylesheet" href="admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../commun/reset.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="../commun/header.css">
-    <link rel="stylesheet" href="../commun/footer.css">
+    <link rel="stylesheet" href="../commun/footer.css?v=2">
 </head>
 <body>
     <header class="header-container-absolute">

@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../commun/reset.css">
     <link rel="stylesheet" href="../accueil/menu.css">
     <link rel="stylesheet" href="../commun/header.css">
-    <link rel="stylesheet" href="../commun/footer.css">
+    <link rel="stylesheet" href="../commun/footer.css?v=2">
     <link rel="stylesheet" href="inscription.css">
 </head>
 <body>

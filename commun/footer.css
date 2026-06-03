@@ -75,7 +75,7 @@
 .insta-icon {
     width: 24px;
     height: 24px;
-    filter: invert(1); /* Rend l'icône noire en blanc si nécessaire */
+    filter: none;
 }
 
 .footer-sub {
