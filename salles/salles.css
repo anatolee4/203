@@ -6,7 +6,7 @@ body {
     margin: 0;
     background: #ffffff;
     color: #000000;
-    font-family: var(--font-main, "Montserrat", Arial, sans-serif);
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 .salles-page {

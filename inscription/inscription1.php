@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-llusion - Inscription</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../commun/reset.css">
     <link rel="stylesheet" href="../accueil/menu.css">
     <link rel="stylesheet" href="../commun/header.css">
     <link rel="stylesheet" href="../commun/footer.css">
     <link rel="stylesheet" href="inscription.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header-container-absolute">
