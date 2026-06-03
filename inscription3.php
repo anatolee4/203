@@ -23,6 +23,13 @@
                 <h1 class="inscription-title" id="inscription-title">Créneaux de la visite</h1>
 
                 <form class="inscription-form" action="inscription4.php" method="get">
+                    <input type="hidden" name="nom" value="<?= htmlspecialchars($_GET['nom'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="prenom" value="<?= htmlspecialchars($_GET['prenom'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="email" value="<?= htmlspecialchars($_GET['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="profil" value="<?= htmlspecialchars($_GET['profil'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="personnes" value="<?= htmlspecialchars($_GET['personnes'] ?? '1', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="salle" value="<?= htmlspecialchars($_GET['salle'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+
                     <fieldset class="form-fieldset slot-panel">
                         <p class="slot-day">Jeudi 18</p>
 

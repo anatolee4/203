@@ -23,6 +23,11 @@
                 <h1 class="inscription-title" id="inscription-title">Votre visite</h1>
 
                 <form class="inscription-form" action="inscription3.php" method="get">
+                    <input type="hidden" name="nom" value="<?= htmlspecialchars($_GET['nom'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="prenom" value="<?= htmlspecialchars($_GET['prenom'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="email" value="<?= htmlspecialchars($_GET['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                    <input type="hidden" name="profil" value="<?= htmlspecialchars($_GET['profil'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+
                     <div class="form-group">
                         <label class="form-label" for="personnes">Nombre de personnes</label>
                         <div class="counter-control" aria-label="Nombre de personnes">
