@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="salles.css">
 </head>
 <body>
+    <header class="header-container-absolute">
+        <?php include 'header.php'; ?>
+    </header>
     <main class="salles-page">
         <section class="salle-section salle-section--image-right">
             <div class="salle-content">
