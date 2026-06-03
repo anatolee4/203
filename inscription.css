@@ -17,7 +17,7 @@ body {
 
 .inscription-card {
     width: min(100%, 1180px);
-    min-height: 720px;
+    height: 720px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: minmax(280px, 40%) 1fr;
@@ -39,11 +39,12 @@ body {
     flex-direction: column;
     gap: 30px;
     padding: clamp(34px, 5vw, 68px);
+    overflow-y: auto;
 }
 
 .inscription-title {
     margin: 0;
-    font-size: clamp(34px, 5vw, 58px);
+    font-size: clamp(28px, 4vw, 44px);
     line-height: 1;
     font-weight: 900;
 }
@@ -129,25 +130,19 @@ body {
 .btn-secondary {
     display: inline-flex;
     min-height: 60px;
+    min-width: 190px;
     align-items: center;
     justify-content: center;
+    border: 3px solid #3ce8d7;
     border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 800;
 }
 
 .btn-next {
     min-width: 210px;
-    border: 3px solid #3ce8d7;
-    background: rgba(0, 0, 0, 0.55);
-    color: #ffffff;
-}
-
-.btn-secondary {
-    min-width: 150px;
-    border: 2px solid #00bbaa;
-    background: #ffffff;
-    color: #000000;
 }
 
 .counter-control {
@@ -225,13 +220,13 @@ body {
 }
 
 .room-name {
-    font-size: clamp(22px, 2.8vw, 34px);
+    font-size: clamp(18px, 2vw, 26px);
     font-weight: 900;
 }
 
 .room-capacity {
     color: #ffffff;
-    font-size: clamp(17px, 2vw, 24px);
+    font-size: clamp(14px, 1.5vw, 18px);
     font-weight: 800;
 }
 
@@ -292,6 +287,7 @@ body {
     }
 
     .inscription-card {
+        height: 720px;
         grid-template-columns: 1fr;
         border-radius: 34px;
     }
