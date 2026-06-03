@@ -10,17 +10,23 @@ body {
 }
 
 .salles-page {
-    width: min(100%, 430px);
+    width: min(100%, 1220px);
+    min-height: 100vh;
     margin: 0 auto;
-    padding: 46px 34px 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    gap: 52px 64px;
+    text-align: center;
+    padding: 46px 42px;
 }
 
 .salle-section {
     display: grid;
-    grid-template-columns: 1fr 158px;
+    grid-template-columns: 1fr 260px;
     align-items: center;
-    column-gap: 28px;
-    margin-bottom: 54px;
+    column-gap: 30px;
+    margin-bottom: 0;
 }
 
 .salle-section:last-child {
@@ -28,29 +34,29 @@ body {
 }
 
 .salle-section--image-left {
-    grid-template-columns: 158px 1fr;
-    column-gap: 28px;
+    grid-template-columns: 260px 1fr;
+    column-gap: 30px;
 }
 
 .salle-content h1,
 .salle-content h2 {
-    margin: 0 0 4px;
+    margin: 0 0 8px;
     font-family: "Arial Black", Impact, sans-serif;
-    font-size: 28px;
-    line-height: 0.9;
+    font-size: 50px;
+    line-height: 0.95;
     letter-spacing: 0;
 }
 
 .salle-content p {
     margin: 0;
-    font-size: 12px;
-    line-height: 1.08;
+    font-size: 17px;
+    line-height: 1.12;
     text-transform: uppercase;
 }
 
 .salle-content .salle-tp {
-    margin-bottom: 8px;
-    font-size: 11px;
+    margin-bottom: 14px;
+    font-size: 17px;
     font-weight: 700;
     text-transform: none;
 }
@@ -61,22 +67,45 @@ body {
 
 .salle-image {
     display: block;
-    width: 158px;
-    height: 137px;
+    width: 260px;
+    height: 210px;
     object-fit: cover;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
+    .salles-page {
+        grid-template-columns: 1fr;
+        max-width: 760px;
+    }
+}
+
+@media (max-width: 620px) {
     .salles-page {
         width: 100%;
-        padding: 36px 24px 28px;
+        padding: 32px 24px;
+        gap: 46px;
     }
 
     .salle-section,
     .salle-section--image-left {
         grid-template-columns: 1fr;
         row-gap: 16px;
-        margin-bottom: 46px;
+    }
+
+    .salle-content h1,
+    .salle-content h2 {
+        font-size: 42px;
+    }
+
+    .salle-content p,
+    .salle-content .salle-tp {
+        font-size: 15px;
+    }
+
+    .salle-image {
+        width: min(100%, 300px);
+        height: 220px;
+        margin: 0 auto;
     }
 
     .salle-section--image-right .salle-image {
