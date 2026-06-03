@@ -2,9 +2,6 @@
 session_start();
 require_once __DIR__ . '/commun/database.php';
 
-const ADMIN_DB_TABLE = 'administrateurs';
-const ADMIN_DB_PASSWORD_COLUMN = 'mot_de_passe';
-
 function admin_login_champ(string $nom): string
 {
     return trim((string) ($_POST[$nom] ?? ''));
@@ -18,8 +15,8 @@ function admin_login_password_ok(string $motDePasse): bool
         throw new RuntimeException('Base de données non configurée.');
     }
 
-    $table = db_identifiant(ADMIN_DB_TABLE);
-    $colonneMotDePasse = db_identifiant(ADMIN_DB_PASSWORD_COLUMN);
+    $table = db_identifiant(DB_TABLE_ADMIN);
+    $colonneMotDePasse = db_identifiant(DB_COL_ADMIN_PASSWORD);
     $requete = $pdo->query("SELECT $colonneMotDePasse AS mot_de_passe FROM $table");
 
     foreach ($requete as $ligne) {

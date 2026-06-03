@@ -1,12 +1,31 @@
 <?php
-// Remplis ces valeurs avec les informations de ta base MySQL.
-// Tant que DB_NAME ou DB_USER est vide, le site garde le stockage local en secours.
-const DB_HOST = 'localhost';
-const DB_NAME = '';
-const DB_USER = '';
-const DB_PASSWORD = '';
+// Remplis ces valeurs avec les informations de connexion de ta base MySQL existante.
+// D'apres ta capture phpMyAdmin, la base s'appelle palisslu.
+const DB_HOST = '192.168.135.113';
+const DB_NAME = 'palisslu';
+const DB_USER = 'palisslu';
+const DB_PASSWORD = 'Petit-lulu.091';
 const DB_CHARSET = 'utf8mb4';
 
+// Noms des tables existantes dans ta base.
+const DB_TABLE_INSCRIPTION = 'inscription';
+const DB_TABLE_ADMIN = 'config_admin';
+
+// Colonnes attendues dans la table inscription.
+// Si tes colonnes n'ont pas exactement ces noms, change seulement ces constantes.
+const DB_COL_INSCRIPTION_ID = 'id_inscription';
+const DB_COL_INSCRIPTION_NOM = 'nom';
+const DB_COL_INSCRIPTION_PRENOM = 'prenom';
+const DB_COL_INSCRIPTION_EMAIL = 'email';
+const DB_COL_INSCRIPTION_PROFIL = 'profil_visiteur';
+const DB_COL_INSCRIPTION_PERSONNES = 'nb_personnes';
+const DB_COL_INSCRIPTION_SALLE = 'id_salle';
+const DB_COL_INSCRIPTION_CRENEAU = 'id_creneau';
+const DB_COL_INSCRIPTION_BUFFET = 'participe_buffet';
+const DB_COL_INSCRIPTION_DATE = 'date_inscription';
+
+// Colonne contenant le mot de passe dans config_admin.
+const DB_COL_ADMIN_PASSWORD = 'valeur';
 function db_est_configuree(): bool
 {
     return DB_NAME !== '' && DB_USER !== '';

@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '/database.php';
 
-const INSCRIPTIONS_TABLE = 'inscriptions';
-
 function inscriptions_cookie_lire(): array
 {
     $inscriptions = json_decode($_COOKIE['inscriptions'] ?? '[]', true);
@@ -23,8 +21,24 @@ function inscriptions_lire_toutes(): array
     }
 
     try {
-        $table = db_identifiant(INSCRIPTIONS_TABLE);
-        $requete = $pdo->query("SELECT id, nom, prenom, email, profil, personnes, salle, creneau, buffet, date_creation FROM $table ORDER BY id ASC");
+        $table = db_identifiant(DB_TABLE_INSCRIPTION);
+        $id = db_identifiant(DB_COL_INSCRIPTION_ID);
+        $nom = db_identifiant(DB_COL_INSCRIPTION_NOM);
+        $prenom = db_identifiant(DB_COL_INSCRIPTION_PRENOM);
+        $email = db_identifiant(DB_COL_INSCRIPTION_EMAIL);
+        $profil = db_identifiant(DB_COL_INSCRIPTION_PROFIL);
+        $personnes = db_identifiant(DB_COL_INSCRIPTION_PERSONNES);
+        $salle = db_identifiant(DB_COL_INSCRIPTION_SALLE);
+        $creneau = db_identifiant(DB_COL_INSCRIPTION_CRENEAU);
+        $buffet = db_identifiant(DB_COL_INSCRIPTION_BUFFET);
+        $dateCreation = db_identifiant(DB_COL_INSCRIPTION_DATE);
+        $requete = $pdo->query(
+            "SELECT $id AS id, $nom AS nom, $prenom AS prenom, $email AS email, $profil AS profil,
+                    $personnes AS personnes, $salle AS salle, $creneau AS creneau, $buffet AS buffet,
+                    $dateCreation AS date_creation
+             FROM $table
+             ORDER BY $id ASC"
+        );
         $inscriptions = [];
 
         foreach ($requete as $ligne) {
@@ -51,9 +65,18 @@ function inscriptions_ajouter(array $inscription): void
     }
 
     try {
-        $table = db_identifiant(INSCRIPTIONS_TABLE);
+        $table = db_identifiant(DB_TABLE_INSCRIPTION);
+        $nom = db_identifiant(DB_COL_INSCRIPTION_NOM);
+        $prenom = db_identifiant(DB_COL_INSCRIPTION_PRENOM);
+        $email = db_identifiant(DB_COL_INSCRIPTION_EMAIL);
+        $profil = db_identifiant(DB_COL_INSCRIPTION_PROFIL);
+        $personnes = db_identifiant(DB_COL_INSCRIPTION_PERSONNES);
+        $salle = db_identifiant(DB_COL_INSCRIPTION_SALLE);
+        $creneau = db_identifiant(DB_COL_INSCRIPTION_CRENEAU);
+        $buffet = db_identifiant(DB_COL_INSCRIPTION_BUFFET);
+        $dateCreation = db_identifiant(DB_COL_INSCRIPTION_DATE);
         $requete = $pdo->prepare(
-            "INSERT INTO $table (nom, prenom, email, profil, personnes, salle, creneau, buffet, date_creation)
+            "INSERT INTO $table ($nom, $prenom, $email, $profil, $personnes, $salle, $creneau, $buffet, $dateCreation)
              VALUES (:nom, :prenom, :email, :profil, :personnes, :salle, :creneau, :buffet, :date_creation)"
         );
         $requete->execute([
@@ -96,8 +119,9 @@ function inscriptions_supprimer(string $identifiant): void
 
     if ($pdo && ctype_digit($identifiant)) {
         try {
-            $table = db_identifiant(INSCRIPTIONS_TABLE);
-            $requete = $pdo->prepare("DELETE FROM $table WHERE id = :id");
+            $table = db_identifiant(DB_TABLE_INSCRIPTION);
+            $id = db_identifiant(DB_COL_INSCRIPTION_ID);
+            $requete = $pdo->prepare("DELETE FROM $table WHERE $id = :id");
             $requete->execute(['id' => (int) $identifiant]);
             return;
         } catch (Throwable $exception) {
@@ -120,12 +144,21 @@ function inscriptions_modifier(string $identifiant, array $inscription): void
 
     if ($pdo && ctype_digit($identifiant)) {
         try {
-            $table = db_identifiant(INSCRIPTIONS_TABLE);
+            $table = db_identifiant(DB_TABLE_INSCRIPTION);
+            $id = db_identifiant(DB_COL_INSCRIPTION_ID);
+            $nom = db_identifiant(DB_COL_INSCRIPTION_NOM);
+            $prenom = db_identifiant(DB_COL_INSCRIPTION_PRENOM);
+            $email = db_identifiant(DB_COL_INSCRIPTION_EMAIL);
+            $profil = db_identifiant(DB_COL_INSCRIPTION_PROFIL);
+            $personnes = db_identifiant(DB_COL_INSCRIPTION_PERSONNES);
+            $salle = db_identifiant(DB_COL_INSCRIPTION_SALLE);
+            $creneau = db_identifiant(DB_COL_INSCRIPTION_CRENEAU);
+            $buffet = db_identifiant(DB_COL_INSCRIPTION_BUFFET);
             $requete = $pdo->prepare(
                 "UPDATE $table
-                 SET nom = :nom, prenom = :prenom, email = :email, profil = :profil, personnes = :personnes,
-                     salle = :salle, creneau = :creneau, buffet = :buffet
-                 WHERE id = :id"
+                 SET $nom = :nom, $prenom = :prenom, $email = :email, $profil = :profil, $personnes = :personnes,
+                     $salle = :salle, $creneau = :creneau, $buffet = :buffet
+                 WHERE $id = :id"
             );
             $requete->execute([
                 'id' => (int) $identifiant,
