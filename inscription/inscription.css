@@ -259,6 +259,25 @@ body {
     font-weight: 800;
 }
 
+.room-status {
+    color: #ffffff;
+    font-size: clamp(13px, 1.4vw, 16px);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.room-option--disabled {
+    cursor: not-allowed;
+}
+
+.room-option--disabled .room-card,
+.room-option input:disabled + .room-card {
+    border-color: #7a1616;
+    background: #c0392b;
+    color: #ffffff;
+    box-shadow: none;
+}
+
 .slot-panel {
     padding: 28px;
     border: 3px solid #c5f9f2;
@@ -279,9 +298,30 @@ body {
 
 .slot-card {
     min-height: 56px;
+    flex-direction: column;
+    gap: 2px;
     border-radius: 12px;
     background: #c5f9f2;
     font-weight: 700;
+}
+
+.slot-option--disabled {
+    cursor: not-allowed;
+}
+
+.slot-option--disabled .slot-card,
+.slot-option input:disabled + .slot-card {
+    border-color: #7a1616;
+    background: #c0392b;
+    color: #ffffff;
+    box-shadow: none;
+    opacity: 1;
+}
+
+.slot-status {
+    font-size: 0.68rem;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 .room-option input:checked + .room-card,

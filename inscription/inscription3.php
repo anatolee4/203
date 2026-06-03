@@ -1,3 +1,71 @@
+<?php
+$capaciteMax = 12;
+$salleChoisie = preg_match('/(001|002|005|021)/', (string) ($_GET['salle'] ?? ''), $matches) ? $matches[1] : '';
+$personnesDemandees = max(1, min($capaciteMax, (int) ($_GET['personnes'] ?? 1)));
+$creneauSelectionne = trim((string) ($_GET['creneau'] ?? ''));
+$retourEtape2 = 'inscription2.php?' . http_build_query([
+    'nom' => $_GET['nom'] ?? '',
+    'prenom' => $_GET['prenom'] ?? '',
+    'email' => $_GET['email'] ?? '',
+    'profil' => $_GET['profil'] ?? '',
+    'personnes' => $_GET['personnes'] ?? '1',
+    'salle' => $_GET['salle'] ?? '',
+    'creneau' => $_GET['creneau'] ?? '',
+    'buffet' => $_GET['buffet'] ?? '',
+]);
+
+$creneaux = [
+    'Jeudi 18' => [
+        '15h' => 'jeudi-15h',
+        '15h30' => 'jeudi-15h30',
+        '16h' => 'jeudi-16h',
+        '16h30' => 'jeudi-16h30',
+        '17h' => 'jeudi-17h',
+        '17h30' => 'jeudi-17h30',
+        '18h' => 'jeudi-18h',
+        '18h30' => 'jeudi-18h30',
+        '19h' => 'jeudi-19h',
+        '19h30' => 'jeudi-19h30',
+        '20h' => 'jeudi-20h',
+    ],
+    'Vendredi 19' => [
+        '9h30' => 'vendredi-9h30',
+        '10h' => 'vendredi-10h',
+        '10h30' => 'vendredi-10h30',
+        '11h' => 'vendredi-11h',
+    ],
+];
+
+$inscriptions = json_decode($_COOKIE['inscriptions'] ?? '[]', true);
+if (!is_array($inscriptions)) {
+    $inscriptions = [];
+}
+
+function code_salle_inscription(?string $salle): string
+{
+    if (preg_match('/(001|002|005|021)/', (string) $salle, $matches)) {
+        return $matches[1];
+    }
+
+    return '';
+}
+
+function places_prises_creneau(array $inscriptions, string $salle, string $creneau): int
+{
+    $places = 0;
+
+    foreach ($inscriptions as $inscription) {
+        if (
+            code_salle_inscription($inscription['salle'] ?? '') === $salle
+            && ($inscription['creneau'] ?? '') === $creneau
+        ) {
+            $places += max(1, (int) ($inscription['personnes'] ?? 1));
+        }
+    }
+
+    return $places;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,7 +77,7 @@
     <link rel="stylesheet" href="../accueil/menu.css">
     <link rel="stylesheet" href="../commun/header.css">
     <link rel="stylesheet" href="../commun/footer.css?v=2">
-    <link rel="stylesheet" href="inscription.css">
+    <link rel="stylesheet" href="inscription.css?v=4">
 </head>
 <body>
     <header class="header-container-absolute">
@@ -32,36 +100,40 @@
                     <input type="hidden" name="profil" value="<?= htmlspecialchars($_GET['profil'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required>
                     <input type="hidden" name="personnes" value="<?= htmlspecialchars($_GET['personnes'] ?? '1', ENT_QUOTES, 'UTF-8') ?>" required>
                     <input type="hidden" name="salle" value="<?= htmlspecialchars($_GET['salle'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required>
+                    <?php if (trim((string) ($_GET['buffet'] ?? '')) !== ''): ?>
+                        <input type="hidden" name="buffet" value="<?= htmlspecialchars($_GET['buffet'], ENT_QUOTES, 'UTF-8') ?>">
+                    <?php endif; ?>
 
                     <fieldset class="form-fieldset slot-panel">
-                        <p class="slot-day">Jeudi 18</p>
+                        <?php foreach ($creneaux as $jour => $horaires): ?>
+                            <p class="slot-day"><?= htmlspecialchars($jour, ENT_QUOTES, 'UTF-8') ?></p>
 
-                        <div class="slot-grid">
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-15h" required><span class="slot-card">15h</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-15h30" required><span class="slot-card">15h30</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-16h" required><span class="slot-card">16h</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-16h30" required><span class="slot-card">16h30</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-17h" required><span class="slot-card">17h</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-17h30" required><span class="slot-card">17h30</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-18h" required><span class="slot-card">18h</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-18h30" required><span class="slot-card">18h30</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-19h" required><span class="slot-card">19h</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-19h30" required><span class="slot-card">19h30</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="jeudi-20h" required><span class="slot-card">20h</span></label>
-                        </div>
-
-                        <p class="slot-day">Vendredi 19</p>
-
-                        <div class="slot-grid">
-                            <label class="slot-option"><input type="radio" name="creneau" value="vendredi-9h30" required><span class="slot-card">9h30</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="vendredi-10h" required><span class="slot-card">10h</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="vendredi-10h30" required><span class="slot-card">10h30</span></label>
-                            <label class="slot-option"><input type="radio" name="creneau" value="vendredi-11h" required><span class="slot-card">11h</span></label>
-                        </div>
+                            <div class="slot-grid">
+                                <?php foreach ($horaires as $horaire => $creneau): ?>
+                                    <?php
+                                        $placesPrises = places_prises_creneau($inscriptions, $salleChoisie, $creneau);
+                                        $placesRestantes = max(0, $capaciteMax - $placesPrises);
+                                        $estComplet = $placesRestantes < $personnesDemandees;
+                                        $statutPlaces = $placesRestantes === 0
+                                            ? 'Complet'
+                                            : $placesRestantes . ' place' . ($placesRestantes > 1 ? 's' : '') . ' restante' . ($placesRestantes > 1 ? 's' : '');
+                                    ?>
+                                    <label class="slot-option <?= $estComplet ? 'slot-option--disabled' : '' ?>" title="<?= $estComplet ? htmlspecialchars($statutPlaces, ENT_QUOTES, 'UTF-8') : '' ?>" <?= $estComplet ? 'aria-disabled="true"' : '' ?>>
+                                        <input type="radio" name="creneau" value="<?= htmlspecialchars($creneau, ENT_QUOTES, 'UTF-8') ?>" required <?= $estComplet ? 'disabled' : '' ?> <?= !$estComplet && $creneauSelectionne === $creneau ? 'checked' : '' ?>>
+                                        <span class="slot-card">
+                                            <span><?= htmlspecialchars($horaire, ENT_QUOTES, 'UTF-8') ?></span>
+                                            <?php if ($estComplet): ?>
+                                                <span class="slot-status"><?= htmlspecialchars($statutPlaces, ENT_QUOTES, 'UTF-8') ?></span>
+                                            <?php endif; ?>
+                                        </span>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endforeach; ?>
                     </fieldset>
 
                     <div class="step-actions">
-                        <a class="btn-secondary" href="inscription2.php">Retour</a>
+                        <a class="btn-secondary" href="<?= htmlspecialchars($retourEtape2, ENT_QUOTES, 'UTF-8') ?>">Retour</a>
                         <button class="btn-next" type="submit">Suivant</button>
                     </div>
                 </form>

@@ -1,7 +1,7 @@
 <?php
 $currentDirectory = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
 $currentFolder = basename($currentDirectory);
-$sectionFolders = ['accueil', 'inscription', 'salles', 'oeuvres'];
+$sectionFolders = ['accueil', 'inscription', 'salles', 'oeuvres', 'admin'];
 $siteRoot = in_array($currentFolder, $sectionFolders, true) ? dirname($currentDirectory) : $currentDirectory;
 $siteRoot = rtrim($siteRoot, '/');
 ?>

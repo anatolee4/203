@@ -4,7 +4,18 @@ function champ_inscription(string $nom, string $defaut = ''): string
     return trim((string) ($_POST[$nom] ?? $_GET[$nom] ?? $defaut));
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$retourEtape3 = 'inscription3.php?' . http_build_query([
+    'nom' => champ_inscription('nom'),
+    'prenom' => champ_inscription('prenom'),
+    'email' => champ_inscription('email'),
+    'profil' => champ_inscription('profil'),
+    'personnes' => champ_inscription('personnes', '1'),
+    'salle' => champ_inscription('salle'),
+    'creneau' => champ_inscription('creneau'),
+    'buffet' => champ_inscription('buffet'),
+]);
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     $inscription = [
         'nom' => champ_inscription('nom'),
         'prenom' => champ_inscription('prenom'),
@@ -77,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="radio-list">
                             <label class="radio-option">
-                                <input type="checkbox" name="buffet" value="oui">
+                                <input type="checkbox" name="buffet" value="oui" <?= champ_inscription('buffet') === 'oui' ? 'checked' : '' ?>>
                                 <span>Je participe au buffet du jeudi 18 juin à 18h30</span>
                             </label>
                         </div>
@@ -96,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </section>
 
                     <div class="step-actions">
-                        <a class="btn-secondary" href="inscription3.php">Retour</a>
+                        <a class="btn-secondary" id="back-to-slots" href="<?= htmlspecialchars($retourEtape3, ENT_QUOTES, 'UTF-8') ?>">Retour</a>
                         <button class="btn-next" type="submit">Confirmer l'inscription</button>
                     </div>
                 </form>
@@ -106,5 +117,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <?php include "../commun/footer.php"; ?>
     <script src="inscription-validation.js"></script>
+    <script>
+        const buffetInput = document.querySelector('input[name="buffet"]');
+        const backLink = document.querySelector("#back-to-slots");
+
+        if (buffetInput && backLink) {
+            backLink.addEventListener("click", () => {
+                const url = new URL(backLink.href, window.location.href);
+                if (buffetInput.checked) {
+                    url.searchParams.set("buffet", "oui");
+                } else {
+                    url.searchParams.delete("buffet");
+                }
+                backLink.href = url.toString();
+            });
+        }
+    </script>
 </body>
 </html>
