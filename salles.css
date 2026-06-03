@@ -10,17 +10,20 @@ body {
 }
 
 .salles-page {
-    width: min(100%, 430px);
+    width: 100%;
+    min-height: 100vh;
     text-align: center;
-    padding: 46px 34px 30px;
+    padding: 0;
 }
 
 .salle-section {
     display: grid;
-    grid-template-columns: 1fr 158px;
+    grid-template-columns: minmax(280px, 1fr) minmax(320px, 48vw);
     align-items: center;
-    column-gap: 28px;
-    margin-bottom: 54px;
+    min-height: 100vh;
+    column-gap: clamp(28px, 5vw, 80px);
+    padding: clamp(32px, 6vw, 88px);
+    margin-bottom: 0;
 }
 
 .salle-section:last-child {
@@ -28,29 +31,29 @@ body {
 }
 
 .salle-section--image-left {
-    grid-template-columns: 158px 1fr;
-    column-gap: 28px;
+    grid-template-columns: minmax(320px, 48vw) minmax(280px, 1fr);
+    column-gap: clamp(28px, 5vw, 80px);
 }
 
 .salle-content h1,
 .salle-content h2 {
     margin: 0 0 4px;
     font-family: "Arial Black", Impact, sans-serif;
-    font-size: 28px;
+    font-size: clamp(42px, 7vw, 96px);
     line-height: 0.9;
     letter-spacing: 0;
 }
 
 .salle-content p {
     margin: 0;
-    font-size: 12px;
-    line-height: 1.08;
+    font-size: clamp(15px, 1.5vw, 24px);
+    line-height: 1.28;
     text-transform: uppercase;
 }
 
 .salle-content .salle-tp {
-    margin-bottom: 8px;
-    font-size: 11px;
+    margin-bottom: clamp(18px, 2.4vw, 34px);
+    font-size: clamp(15px, 1.5vw, 24px);
     font-weight: 700;
     text-transform: none;
 }
@@ -61,22 +64,24 @@ body {
 
 .salle-image {
     display: block;
-    width: 158px;
-    height: 137px;
+    width: 100%;
+    height: min(68vh, 620px);
     object-fit: cover;
 }
 
 @media (max-width: 480px) {
     .salles-page {
         width: 100%;
-        padding: 36px 24px 28px;
+        padding: 0;
     }
 
     .salle-section,
     .salle-section--image-left {
         grid-template-columns: 1fr;
-        row-gap: 16px;
-        margin-bottom: 46px;
+        min-height: 100vh;
+        row-gap: 22px;
+        padding: 28px 22px;
+        margin-bottom: 0;
     }
 
     .salle-section--image-right .salle-image {
@@ -89,5 +94,9 @@ body {
 
     .salle-section--image-left .salle-image {
         order: 2;
+    }
+
+    .salle-image {
+        height: 42vh;
     }
 }
