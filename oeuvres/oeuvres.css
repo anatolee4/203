@@ -19,6 +19,12 @@ body {
     margin: 0 auto;
 }
 
+#salle-002,
+#salle-005,
+#salle-021 {
+    padding-top: clamp(140px, 16vw, 220px);
+}
+
 .oeuvres-heading {
     margin-bottom: 22px;
 }
@@ -138,6 +144,12 @@ body {
 
     .oeuvres-grid {
         grid-template-columns: 1fr;
+    }
+
+    #salle-002,
+    #salle-005,
+    #salle-021 {
+        padding-top: 120px;
     }
 
     .oeuvre-card:hover {
