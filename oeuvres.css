@@ -17,11 +17,6 @@ body {
 .oeuvres-room {
     width: min(100%, 1060px);
     margin: 0 auto;
-    scroll-margin-top: 140px;
-}
-
-.oeuvres-room + .oeuvres-room {
-    margin-top: clamp(72px, 10vw, 130px);
 }
 
 .oeuvres-heading {
