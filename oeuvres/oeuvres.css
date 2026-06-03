@@ -97,18 +97,24 @@ body {
     position: absolute;
     top: 24px;
     right: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: min(72%, 300px);
-    max-height: 78px;
+    min-height: 92px;
+    max-height: none;
     padding: 16px 20px;
     overflow: hidden;
     color: #ffffff;
     background: #9b9b9bcc;
     border: 3px solid #00bfa5;
     border-radius: 14px;
+    text-align: center;
     transition: width 0.28s ease, max-height 0.28s ease, background 0.28s ease;
 }
 
 .oeuvre-card:hover .oeuvre-panel {
+    justify-content: flex-start;
     width: calc(100% - 48px);
     max-height: calc(100% - 48px);
     background: #8f8f8fe8;
@@ -123,6 +129,7 @@ body {
 }
 
 .oeuvre-panel p {
+    display: none;
     margin: 14px 0 0;
     font-size: clamp(14px, 1.6vw, 18px);
     line-height: 1.35;
@@ -133,6 +140,7 @@ body {
 }
 
 .oeuvre-card:hover .oeuvre-panel p {
+    display: block;
     opacity: 1;
     transform: translateY(0);
 }
