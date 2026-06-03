@@ -1,7 +1,9 @@
 <footer class="footer-section">
+    <link rel="stylesheet" href="footer.css">
         
         <div class="footer-main">
             <h2 class="footer-logo">E-llusion</h2>
+            
             
             <div class="footer-content">
                 <div class="footer-brand-left">
