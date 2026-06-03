@@ -52,15 +52,15 @@ function libelle_creneau(?string $creneau): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-llusion - Mes inscriptions</title>
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../accueil/menu.css">
+    <link rel="stylesheet" href="../commun/header.css">
+    <link rel="stylesheet" href="../commun/footer.css">
     <link rel="stylesheet" href="inscription.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header-container-absolute">
-        <?php include 'header.php'; ?>
+        <?php include "../commun/header.php"; ?>
     </header>
 
     <main class="inscription-page">
@@ -116,6 +116,6 @@ function libelle_creneau(?string $creneau): string
         </section>
     </main>
 
-    <?php include 'footer.php'; ?>
+    <?php include "../commun/footer.php"; ?>
 </body>
 </html>

@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-llusion - Exposition Interactive</title>
     <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../commun/header.css">
+    <link rel="stylesheet" href="../commun/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header-container-absolute">
-        <?php include 'header.php'; ?>
+        <?php include "../commun/header.php"; ?>
     </header>
     
     <section class="hero-section">
@@ -26,7 +26,7 @@
                 <div class="hero-frame-bottom"></div>
             </div>
 
-            <a href="/SAE%20203/203/inscription1.php" class="btn-register">S'inscrire</a>
+            <a href="../inscription/inscription1.php" class="btn-register">S'inscrire</a>
         </div>
     </section>
 
@@ -47,7 +47,7 @@
         </div>
     </section>
 
-    <?php include 'footer.php'; ?>
+    <?php include "../commun/footer.php"; ?>
 
 </body>
 </html>
