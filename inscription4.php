@@ -60,14 +60,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="inscription-content">
                 <h1 class="inscription-title" id="inscription-title">Derniers détails</h1>
 
-                <form class="inscription-form" action="inscription4.php" method="post">
-                    <input type="hidden" name="nom" value="<?= htmlspecialchars(champ_inscription('nom'), ENT_QUOTES, 'UTF-8') ?>">
-                    <input type="hidden" name="prenom" value="<?= htmlspecialchars(champ_inscription('prenom'), ENT_QUOTES, 'UTF-8') ?>">
-                    <input type="hidden" name="email" value="<?= htmlspecialchars(champ_inscription('email'), ENT_QUOTES, 'UTF-8') ?>">
-                    <input type="hidden" name="profil" value="<?= htmlspecialchars(champ_inscription('profil'), ENT_QUOTES, 'UTF-8') ?>">
-                    <input type="hidden" name="personnes" value="<?= htmlspecialchars(champ_inscription('personnes', '1'), ENT_QUOTES, 'UTF-8') ?>">
-                    <input type="hidden" name="salle" value="<?= htmlspecialchars(champ_inscription('salle'), ENT_QUOTES, 'UTF-8') ?>">
-                    <input type="hidden" name="creneau" value="<?= htmlspecialchars(champ_inscription('creneau'), ENT_QUOTES, 'UTF-8') ?>">
+                <form class="inscription-form" action="inscription4.php" method="post" data-validate-form data-error-message="Certaines informations obligatoires sont manquantes. Revenez aux étapes précédentes pour compléter l'inscription." novalidate>
+                    <p class="form-alert" data-form-alert role="alert" aria-live="polite" hidden></p>
+
+                    <input type="hidden" name="nom" value="<?= htmlspecialchars(champ_inscription('nom'), ENT_QUOTES, 'UTF-8') ?>" required>
+                    <input type="hidden" name="prenom" value="<?= htmlspecialchars(champ_inscription('prenom'), ENT_QUOTES, 'UTF-8') ?>" required>
+                    <input type="hidden" name="email" value="<?= htmlspecialchars(champ_inscription('email'), ENT_QUOTES, 'UTF-8') ?>" required>
+                    <input type="hidden" name="profil" value="<?= htmlspecialchars(champ_inscription('profil'), ENT_QUOTES, 'UTF-8') ?>" required>
+                    <input type="hidden" name="personnes" value="<?= htmlspecialchars(champ_inscription('personnes', '1'), ENT_QUOTES, 'UTF-8') ?>" required>
+                    <input type="hidden" name="salle" value="<?= htmlspecialchars(champ_inscription('salle'), ENT_QUOTES, 'UTF-8') ?>" required>
+                    <input type="hidden" name="creneau" value="<?= htmlspecialchars(champ_inscription('creneau'), ENT_QUOTES, 'UTF-8') ?>" required>
 
                     <fieldset class="form-fieldset">
                         <legend class="fieldset-title">Buffet</legend>
@@ -102,5 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 
     <?php include 'footer.php'; ?>
+    <script src="inscription-validation.js"></script>
 </body>
 </html>

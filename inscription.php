@@ -4,6 +4,19 @@ if (!is_array($inscriptions)) {
     $inscriptions = [];
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_index'])) {
+    $index = (int) $_POST['supprimer_index'];
+
+    if (array_key_exists($index, $inscriptions)) {
+        unset($inscriptions[$index]);
+        $inscriptions = array_values($inscriptions);
+        setcookie('inscriptions', json_encode($inscriptions), time() + 60 * 60 * 24 * 30, '/');
+    }
+
+    header('Location: inscription.php?suppression=1');
+    exit;
+}
+
 function afficher_valeur(?string $valeur, string $defaut = 'Non renseigné'): string
 {
     $valeur = trim((string) $valeur);
@@ -61,6 +74,10 @@ function libelle_creneau(?string $creneau): string
                     <p class="success-message">Votre inscription a bien été enregistrée.</p>
                 <?php endif; ?>
 
+                <?php if (isset($_GET['suppression'])) : ?>
+                    <p class="success-message">L'inscription a bien été supprimée.</p>
+                <?php endif; ?>
+
                 <?php if (empty($inscriptions)) : ?>
                     <div class="empty-summary">
                         <p>Aucune inscription enregistrée pour le moment.</p>
@@ -68,7 +85,7 @@ function libelle_creneau(?string $creneau): string
                     </div>
                 <?php else : ?>
                     <div class="summary-list">
-                        <?php foreach (array_reverse($inscriptions) as $inscription) : ?>
+                        <?php foreach (array_reverse($inscriptions, true) as $index => $inscription) : ?>
                             <article class="summary-card">
                                 <div>
                                     <h2><?= afficher_valeur(($inscription['prenom'] ?? '') . ' ' . ($inscription['nom'] ?? ''), 'Visiteur') ?></h2>
@@ -82,6 +99,11 @@ function libelle_creneau(?string $creneau): string
                                     <div><dt>Créneau</dt><dd><?= libelle_creneau($inscription['creneau'] ?? '') ?></dd></div>
                                     <div><dt>Buffet</dt><dd><?= ($inscription['buffet'] ?? 'non') === 'oui' ? 'Oui' : 'Non' ?></dd></div>
                                 </dl>
+
+                                <form class="delete-form" action="inscription.php" method="post">
+                                    <input type="hidden" name="supprimer_index" value="<?= (int) $index ?>">
+                                    <button class="btn-delete" type="submit">Supprimer</button>
+                                </form>
                             </article>
                         <?php endforeach; ?>
                     </div>
