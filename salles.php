@@ -21,15 +21,10 @@
                 <h1>Salle 001</h1>
                 <p class="salle-tp">TP : ...</p>
                 <p class="salle-label">PRESENTATION</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
+                <div class="salle-presentation-box">
+                    <p>Texte de presentation de la salle a completer.</p>
+                </div>
+                <a href="/203/203/oeuvres.php" class="salle-oeuvres-button">Voir les oeuvres</a>
             </div>
             <img src="img/imgsalle001.png" alt="Salle 001" class="salle-image">
         </section>
@@ -40,15 +35,10 @@
                 <h2>Salle 002</h2>
                 <p class="salle-tp">TP : ...</p>
                 <p class="salle-label">PRESENTATION</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
+                <div class="salle-presentation-box">
+                    <p>Texte de presentation de la salle a completer.</p>
+                </div>
+                <a href="/203/203/oeuvres.php" class="salle-oeuvres-button">Voir les oeuvres</a>
             </div>
         </section>
 
@@ -57,15 +47,10 @@
                 <h2>Salle 005</h2>
                 <p class="salle-tp">TP : ...</p>
                 <p class="salle-label">PRESENTATION</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
+                <div class="salle-presentation-box">
+                    <p>Texte de presentation de la salle a completer.</p>
+                </div>
+                <a href="/203/203/oeuvres.php" class="salle-oeuvres-button">Voir les oeuvres</a>
             </div>
             <img src="img/imgsalle005.png" alt="Salle 005" class="salle-image">
         </section>
@@ -76,15 +61,10 @@
                 <h2>Salle 021</h2>
                 <p class="salle-tp">TP : ...</p>
                 <p class="salle-label">PRESENTATION</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
-                <p>PRESENTATION DE LA SALLE</p>
+                <div class="salle-presentation-box">
+                    <p>Texte de presentation de la salle a completer.</p>
+                </div>
+                <a href="/203/203/oeuvres.php" class="salle-oeuvres-button">Voir les oeuvres</a>
             </div>
         </section>
     </main>
