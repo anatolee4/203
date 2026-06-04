@@ -30,8 +30,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         'date_creation' => date('Y-m-d H:i:s'),
     ];
 
-    inscriptions_ajouter($inscription);
-    header('Location: inscription.php?confirmation=1');
+    $tokenGestion = inscriptions_ajouter($inscription);
+    header('Location: inscription.php?' . http_build_query([
+        'confirmation' => '1',
+        'token_gestion' => $tokenGestion,
+    ]));
     exit;
 }
 ?>

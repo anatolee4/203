@@ -14,13 +14,14 @@ function inscriptions_cookie_sauver(array $inscriptions): void
 
 function inscriptions_token_utilisateur(): string
 {
-    $token = (string) ($_COOKIE['token_gestion'] ?? '');
+    $token = (string) ($_GET['token_gestion'] ?? $_POST['token_gestion'] ?? $_COOKIE['token_gestion'] ?? '');
 
     if (!preg_match('/^[a-f0-9]{32,40}$/', $token)) {
         $token = inscriptions_token();
-        setcookie('token_gestion', $token, time() + 60 * 60 * 24 * 365, '/');
-        $_COOKIE['token_gestion'] = $token;
     }
+
+    setcookie('token_gestion', $token, time() + 60 * 60 * 24 * 365, '/');
+    $_COOKIE['token_gestion'] = $token;
 
     return $token;
 }
@@ -233,15 +234,16 @@ function inscriptions_lire_utilisateur(): array
     return inscriptions_lire_toutes(inscriptions_token_utilisateur());
 }
 
-function inscriptions_ajouter(array $inscription): void
+function inscriptions_ajouter(array $inscription): string
 {
+    $tokenGestion = inscriptions_token_utilisateur();
     $pdo = db_connexion();
 
     if (!$pdo) {
         $inscriptions = inscriptions_cookie_lire();
         $inscriptions[] = $inscription;
         inscriptions_cookie_sauver($inscriptions);
-        return;
+        return $tokenGestion;
     }
 
     try {
@@ -275,18 +277,20 @@ function inscriptions_ajouter(array $inscription): void
 
         if (inscriptions_table_a_colonne($pdo, DB_COL_INSCRIPTION_TOKEN)) {
             $colonnes[DB_COL_INSCRIPTION_TOKEN] = 'token_gestion';
-            $valeurs['token_gestion'] = inscriptions_token_utilisateur();
+            $valeurs['token_gestion'] = $tokenGestion;
         }
 
         $colonnesSql = implode(', ', array_map('db_identifiant', array_keys($colonnes)));
         $parametresSql = ':' . implode(', :', array_values($colonnes));
         $requete = $pdo->prepare("INSERT INTO $table ($colonnesSql) VALUES ($parametresSql)");
         $requete->execute($valeurs);
+        return $tokenGestion;
     } catch (Throwable $exception) {
         db_enregistrer_erreur($exception->getMessage());
         $inscriptions = inscriptions_cookie_lire();
         $inscriptions[] = $inscription;
         inscriptions_cookie_sauver($inscriptions);
+        return $tokenGestion;
     }
 }
 
