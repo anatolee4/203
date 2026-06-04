@@ -13,18 +13,18 @@ $siteRoot = rtrim($siteRoot, '/');
             
             <div class="footer-content">
                 <div class="footer-brand-left">
-                    <img src="<?= htmlspecialchars($siteRoot . '/img/logo_MMI.png', ENT_QUOTES, 'UTF-8') ?>" alt="MMI Chambéry" class="partner-logo">
+                    <img src="<?= htmlspecialchars($siteRoot . '/img/logo_MMI.png', ENT_QUOTES, 'UTF-8') ?>" alt="Logo du departement MMI de Chambery" class="partner-logo">
                 </div>
 
                 <div class="footer-center">
                     <p class="contact-mail">nous contacter : <a href="mailto:aaaa@univ-smb.fr">aaaa@univ-smb.fr</a></p>
                     <a href="https://www.instagram.com/mmichambery/" target="_blank" class="instagram-link">
-                        <img src="<?= htmlspecialchars($siteRoot . '/img/logo_insta.png?v=2', ENT_QUOTES, 'UTF-8') ?>" alt="" class="insta-icon"> Instagram
+                        <img src="<?= htmlspecialchars($siteRoot . '/img/logo_insta.png?v=2', ENT_QUOTES, 'UTF-8') ?>" alt="Logo Instagram" class="insta-icon"> Instagram
                     </a>
                 </div>
 
                 <div class="footer-brand-right">
-                    <img src="<?= htmlspecialchars($siteRoot . '/img/logo_IUT.png', ENT_QUOTES, 'UTF-8') ?>" alt="IUT Chambéry" class="partner-logo">
+                    <img src="<?= htmlspecialchars($siteRoot . '/img/logo_IUT.png', ENT_QUOTES, 'UTF-8') ?>" alt="Logo de l'IUT de Chambery" class="partner-logo">
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@
 
             <div class="presentation-image-wrapper">
                 <div class="img-frame-top"></div>
-                <img src="chemin_vers_votre_image_abstraite.jpg" alt="Aperçu Exposition E-llusion" class="presentation-img">
+                <img src="../img/hero.png" alt="Visuel de presentation de l'exposition interactive E-llusion" class="presentation-img">
                 <div class="img-frame-bottom"></div>
             </div>
 

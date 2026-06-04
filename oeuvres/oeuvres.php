@@ -25,7 +25,7 @@
 
             <div class="oeuvres-grid">
                 <article class="oeuvre-card oeuvre-card--one">
-                    <img src="../img/salle001_1.png" alt="Oeuvre 1 de la salle 001" class="oeuvre-image">
+                    <img src="../img/salle001_1.png" alt="Visuel de l'oeuvre 1 presentee dans la salle 001" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 1</h2>
                         <p>Presentation courte de l'oeuvre, de son intention et de l'experience proposee au visiteur.</p>
@@ -33,7 +33,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--two">
-                    <img src="../img/salle001_2.png" alt="Oeuvre 2 de la salle 001" class="oeuvre-image">
+                    <img src="../img/salle001_2.png" alt="Visuel de l'oeuvre 2 presentee dans la salle 001" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 2</h2>
                         <p>Informations sur les formes, les sons ou les interactions qui composent cette installation.</p>
@@ -41,7 +41,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--three">
-                    <img src="../img/salle001_3.png" alt="Oeuvre 3 de la salle 001" class="oeuvre-image">
+                    <img src="../img/salle001_3.png" alt="Visuel de l'oeuvre 3 presentee dans la salle 001" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 3</h2>
                         <p>Texte a completer avec le nom du projet, les auteurs et les elements importants a observer.</p>
@@ -49,7 +49,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--four">
-                    <img src="../img/salle001_4.png" alt="Oeuvre 4 de la salle 001" class="oeuvre-image">
+                    <img src="../img/salle001_4.png" alt="Visuel de l'oeuvre 4 presentee dans la salle 001" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 4</h2>
                         <p>Details supplementaires sur le dispositif, le theme et le lien avec l'exposition E-llusion.</p>
@@ -66,7 +66,7 @@
 
             <div class="oeuvres-grid">
                 <article class="oeuvre-card oeuvre-card--one">
-                    <img src="../img/salle002_1.png" alt="Oeuvre 1 de la salle 002" class="oeuvre-image">
+                    <img src="../img/salle002_1.png" alt="Visuel de l'oeuvre 1 presentee dans la salle 002" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 1</h2>
                         <p>Presentation courte de l'oeuvre, de son intention et de l'experience proposee au visiteur.</p>
@@ -74,7 +74,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--two">
-                    <img src="../img/salle002_2.png" alt="Oeuvre 2 de la salle 002" class="oeuvre-image">
+                    <img src="../img/salle002_2.png" alt="Visuel de l'oeuvre 2 presentee dans la salle 002" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 2</h2>
                         <p>Informations sur les formes, les sons ou les interactions qui composent cette installation.</p>
@@ -82,7 +82,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--three">
-                    <img src="../img/salle002_3.png" alt="Oeuvre 3 de la salle 002" class="oeuvre-image">
+                    <img src="../img/salle002_3.png" alt="Visuel de l'oeuvre 3 presentee dans la salle 002" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 3</h2>
                         <p>Texte a completer avec le nom du projet, les auteurs et les elements importants a observer.</p>
@@ -90,7 +90,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--four">
-                    <img src="../img/salle002_4.png" alt="Oeuvre 4 de la salle 002" class="oeuvre-image">
+                    <img src="../img/salle002_4.png" alt="Visuel de l'oeuvre 4 presentee dans la salle 002" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 4</h2>
                         <p>Details supplementaires sur le dispositif, le theme et le lien avec l'exposition E-llusion.</p>
@@ -107,7 +107,7 @@
 
             <div class="oeuvres-grid">
                 <article class="oeuvre-card oeuvre-card--one">
-                    <img src="../img/salle005_1.png" alt="Oeuvre 1 de la salle 005" class="oeuvre-image">
+                    <img src="../img/salle005_1.png" alt="Visuel de l'oeuvre 1 presentee dans la salle 005" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 1</h2>
                         <p>Presentation courte de l'oeuvre, de son intention et de l'experience proposee au visiteur.</p>
@@ -115,7 +115,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--two">
-                    <img src="../img/salle005_2.png" alt="Oeuvre 2 de la salle 005" class="oeuvre-image">
+                    <img src="../img/salle005_2.png" alt="Visuel de l'oeuvre 2 presentee dans la salle 005" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 2</h2>
                         <p>Informations sur les formes, les sons ou les interactions qui composent cette installation.</p>
@@ -123,7 +123,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--three">
-                    <img src="../img/salle005_3.png" alt="Oeuvre 3 de la salle 005" class="oeuvre-image">
+                    <img src="../img/salle005_3.png" alt="Visuel de l'oeuvre 3 presentee dans la salle 005" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 3</h2>
                         <p>Texte a completer avec le nom du projet, les auteurs et les elements importants a observer.</p>
@@ -131,7 +131,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--four">
-                    <img src="../img/salle005_4.png" alt="Oeuvre 4 de la salle 005" class="oeuvre-image">
+                    <img src="../img/salle005_4.png" alt="Visuel de l'oeuvre 4 presentee dans la salle 005" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 4</h2>
                         <p>Details supplementaires sur le dispositif, le theme et le lien avec l'exposition E-llusion.</p>
@@ -148,7 +148,7 @@
 
             <div class="oeuvres-grid">
                 <article class="oeuvre-card oeuvre-card--one">
-                    <img src="../img/salle021_1.png" alt="Oeuvre 1 de la salle 021" class="oeuvre-image">
+                    <img src="../img/salle021_1.png" alt="Visuel de l'oeuvre 1 presentee dans la salle 021" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 1</h2>
                         <p>Presentation courte de l'oeuvre, de son intention et de l'experience proposee au visiteur.</p>
@@ -156,7 +156,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--two">
-                    <img src="../img/salle021_2.png" alt="Oeuvre 2 de la salle 021" class="oeuvre-image">
+                    <img src="../img/salle021_2.png" alt="Visuel de l'oeuvre 2 presentee dans la salle 021" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 2</h2>
                         <p>Informations sur les formes, les sons ou les interactions qui composent cette installation.</p>
@@ -164,7 +164,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--three">
-                    <img src="../img/salle021_3.png" alt="Oeuvre 3 de la salle 021" class="oeuvre-image">
+                    <img src="../img/salle021_3.png" alt="Visuel de l'oeuvre 3 presentee dans la salle 021" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 3</h2>
                         <p>Texte a completer avec le nom du projet, les auteurs et les elements importants a observer.</p>
@@ -172,7 +172,7 @@
                 </article>
 
                 <article class="oeuvre-card oeuvre-card--four">
-                    <img src="../img/salle021_4.png" alt="Oeuvre 4 de la salle 021" class="oeuvre-image">
+                    <img src="../img/salle021_4.png" alt="Visuel de l'oeuvre 4 presentee dans la salle 021" class="oeuvre-image">
                     <div class="oeuvre-panel">
                         <h2>Oeuvre 4</h2>
                         <p>Details supplementaires sur le dispositif, le theme et le lien avec l'exposition E-llusion.</p>

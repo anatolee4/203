@@ -27,11 +27,11 @@
                 </div>
                 <a href="../oeuvres/oeuvres.php#salle-001" class="salle-oeuvres-button">Voir les oeuvres</a>
             </div>
-            <img src="../img/imgsalle001.png" alt="Salle 001" class="salle-image">
+            <img src="../img/imgsalle001.png" alt="Apercu de la salle 001 de l'exposition E-llusion" class="salle-image">
         </section>
 
         <section class="salle-section salle-section--image-left">
-            <img src="../img/imgsalle002.png" alt="Salle 002" class="salle-image">
+            <img src="../img/imgsalle002.png" alt="Apercu de la salle 002 de l'exposition E-llusion" class="salle-image">
             <div class="salle-content">
                 <h2>Salle 002</h2>
                 <p class="salle-tp">TP : ...</p>
@@ -53,11 +53,11 @@
                 </div>
                 <a href="../oeuvres/oeuvres.php#salle-005" class="salle-oeuvres-button">Voir les oeuvres</a>
             </div>
-            <img src="../img/imgsalle005.png" alt="Salle 005" class="salle-image">
+            <img src="../img/imgsalle005.png" alt="Apercu de la salle 005 de l'exposition E-llusion" class="salle-image">
         </section>
 
         <section class="salle-section salle-section--image-left">
-            <img src="../img/imgsalle021.png" alt="Salle 021" class="salle-image">
+            <img src="../img/imgsalle021.png" alt="Apercu de la salle 021 de l'exposition E-llusion" class="salle-image">
             <div class="salle-content">
                 <h2>Salle 021</h2>
                 <p class="salle-tp">TP : ...</p>
