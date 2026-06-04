@@ -19,23 +19,41 @@ const DB_COL_INSCRIPTION_PRENOM = 'prenom';
 const DB_COL_INSCRIPTION_EMAIL = 'email';
 const DB_COL_INSCRIPTION_PROFIL = 'profil_visiteur';
 const DB_COL_INSCRIPTION_PERSONNES = 'nb_personnes';
-const DB_COL_INSCRIPTION_SALLE = 'id_salle';
+const DB_COL_INSCRIPTION_SALLE = '';
 const DB_COL_INSCRIPTION_CRENEAU = 'id_creneau';
 const DB_COL_INSCRIPTION_BUFFET = 'participe_buffet';
+const DB_COL_INSCRIPTION_TOKEN = 'token_gestion';
 const DB_COL_INSCRIPTION_DATE = 'date_inscription';
 
 // Colonne contenant le mot de passe dans config_admin.
 const DB_COL_ADMIN_PASSWORD = 'valeur';
+
+$db_derniere_erreur = null;
+
 function db_est_configuree(): bool
 {
     return DB_NAME !== '' && DB_USER !== '';
 }
 
+function db_derniere_erreur(): ?string
+{
+    global $db_derniere_erreur;
+    return $db_derniere_erreur;
+}
+
+function db_enregistrer_erreur(string $message): void
+{
+    global $db_derniere_erreur;
+    $db_derniere_erreur = $message;
+}
+
 function db_connexion(): ?PDO
 {
     static $pdo = null;
+    global $db_derniere_erreur;
 
     if (!db_est_configuree()) {
+        $db_derniere_erreur = 'Configuration de base de donnees incomplete.';
         return null;
     }
 
@@ -51,6 +69,7 @@ function db_connexion(): ?PDO
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]);
     } catch (Throwable $exception) {
+        $db_derniere_erreur = $exception->getMessage();
         return null;
     }
 

@@ -7,6 +7,11 @@ function admin_login_champ(string $nom): string
     return trim((string) ($_POST[$nom] ?? ''));
 }
 
+function admin_login_est_hash(string $motDePasse): bool
+{
+    return (password_get_info($motDePasse)['algoName'] ?? 'unknown') !== 'unknown';
+}
+
 function admin_login_password_ok(string $motDePasse): bool
 {
     $pdo = db_connexion();
@@ -26,7 +31,7 @@ function admin_login_password_ok(string $motDePasse): bool
             continue;
         }
 
-        $estHash = password_get_info($motDePasseBase)['algo'] !== 0;
+        $estHash = admin_login_est_hash($motDePasseBase);
         if (($estHash && password_verify($motDePasse, $motDePasseBase)) || (!$estHash && hash_equals($motDePasseBase, $motDePasse))) {
             return true;
         }

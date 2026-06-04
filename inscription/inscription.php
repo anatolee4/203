@@ -1,10 +1,11 @@
 <?php
 require_once __DIR__ . '/../commun/inscriptions_repository.php';
 
-$inscriptions = inscriptions_lire_toutes();
+$tokenGestion = inscriptions_token_utilisateur();
+$inscriptions = inscriptions_lire_utilisateur();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_index'])) {
-    inscriptions_supprimer((string) $_POST['supprimer_index']);
+    inscriptions_supprimer((string) $_POST['supprimer_index'], $tokenGestion);
 
     header('Location: inscription.php?suppression=1');
     exit;
